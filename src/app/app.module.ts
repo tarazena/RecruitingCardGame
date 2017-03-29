@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { AppComponent } from './app.component';
+import { HowManyComponent } from './features/questions/how-many/how-many.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HowManyComponent
   ],
   imports: [
     BrowserModule,
