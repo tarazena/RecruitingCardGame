@@ -1,3 +1,4 @@
-<select [(ngModel)]="SelectedItem" (ngModelChange)="onchange($event)">
+<select [(ngModel)]="selectedItem" (ngModelChange)="onSelect($event)">
       <option *ngFor="let item of listItems" [ngValue]="item"> {{item.description}} </option>
 </select>
+<app-results [howmanyItem]="selectedItem"></app-results>
