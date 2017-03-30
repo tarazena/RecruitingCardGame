@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DropdownItem } from '../questions/models';
 
 @Component({
@@ -6,11 +6,8 @@ import { DropdownItem } from '../questions/models';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent  {
+  @Input() howmanyItem: DropdownItem;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

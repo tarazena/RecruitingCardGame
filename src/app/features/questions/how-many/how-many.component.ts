@@ -22,7 +22,7 @@ export class HowManyComponent {
   listItems: DropdownItem[] = HOWMANY;
   selectedItem: DropdownItem;
 
-  onchange(item) {
+  onSelect(item: DropdownItem): void {
     this.selectedItem = item;
   }
 
