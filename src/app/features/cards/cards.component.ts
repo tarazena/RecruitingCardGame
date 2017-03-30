@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Card, DECK } from '../../card';
 
 @Component({
@@ -6,7 +6,16 @@ import { Card, DECK } from '../../card';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent {
+  cards: Card[] = [];
+
+  guess(): boolean {
+    return false;
+  }
+
+  constructor() {
+    this.cards = this.DealFiveCards(DECK);
+   }
 
   DealFiveCards(DECK): Card[] {
     let HAND: Card[] = [];
@@ -14,14 +23,7 @@ export class CardsComponent implements OnInit {
       let pickedCard = Math.floor(Math.random() * 52) + 1;
       HAND.push(DECK[pickedCard]);
     }
-    console.log(HAND);
     return HAND;
-  }
-
-  constructor() { }
-
-  ngOnInit() {
-    this.DealFiveCards(DECK);
   }
 
 }

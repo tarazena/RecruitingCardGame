@@ -3,10 +3,28 @@
   <p>Try to guess the 5 cards by asking the fewest questions and in the shortest time</p>
 </div>
 
-<div class="row">
-  <div class="col-sm-2">1</div>
-  <div class="col-sm-2">2</div>
-  <div class="col-sm-2">3</div>
-  <div class="col-sm-2">4</div>
-  <div class="col-sm-2">5</div>
+
+<button (click)="guess = !guess">{{guess ? 'show' : 'hide'}}</button>
+<div class="row" *ngIf="!guess">
+  <div class="col-sm-2" *ngFor="let c of cards">
+    <img src="../../../assets/playing-cards/{{c.numericalValue}}_of_{{c.suit | lowercase}}.svg" alt="">
+  </div>
+</div>
+<div class="row" *ngIf="guess">
+
+  <div class="col-sm-2">
+    <img src="../../../assets/playing-cards/red_joker.svg" alt="">
+  </div>
+  <div class="col-sm-2">
+    <img src="../../../assets/playing-cards/black_joker.svg" alt="">
+  </div>
+  <div class="col-sm-2">
+    <img src="../../../assets/playing-cards/red_joker.svg" alt="">
+  </div>
+  <div class="col-sm-2">
+    <img src="../../../assets/playing-cards/black_joker.svg" alt="">
+  </div>
+  <div class="col-sm-2">
+    <img src="../../../assets/playing-cards/red_joker.svg" alt="">
+  </div>
 </div>
