@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HowManyComponent } from './features/questions/how-many/how-many.component';
 import { QuestionsComponent } from './features/questions/questions.component';
 import { ResultsComponent } from './features/results/results.component';
+import { CardsComponent } from './features/cards/cards.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ResultsComponent } from './features/results/results.component';
     AppComponent,
     HowManyComponent,
     QuestionsComponent,
-    ResultsComponent
+    ResultsComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
