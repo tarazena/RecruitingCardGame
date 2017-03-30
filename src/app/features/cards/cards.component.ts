@@ -15,12 +15,13 @@ export class CardsComponent {
 
   constructor() {
     this.cards = this.DealFiveCards(DECK);
+    console.log(this.cards);
    }
 
   DealFiveCards(DECK): Card[] {
     let HAND: Card[] = [];
     for (let i = 0; i < 5; i++) {
-      let pickedCard = Math.floor(Math.random() * 52) + 1;
+      let pickedCard = Math.floor(Math.random() * 52);
       HAND.push(DECK[pickedCard]);
     }
     return HAND;

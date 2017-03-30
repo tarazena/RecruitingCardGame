@@ -7,24 +7,24 @@
 <button (click)="guess = !guess">{{guess ? 'show' : 'hide'}}</button>
 <div class="row" *ngIf="!guess">
   <div class="col-sm-2" *ngFor="let c of cards">
-    <img src="../../../assets/playing-cards/{{c.numericalValue}}_of_{{c.suit | lowercase}}.svg" alt="">
+    <img class="card" src="../../../assets/playing-cards/{{c.numericalValue}}_of_{{c.suit | lowercase}}.svg" alt="">
   </div>
 </div>
 <div class="row" *ngIf="guess">
 
   <div class="col-sm-2">
-    <img src="../../../assets/playing-cards/red_joker.svg" alt="">
+    <img class="card" src="../../../assets/playing-cards/red_joker.svg" alt="">
   </div>
   <div class="col-sm-2">
-    <img src="../../../assets/playing-cards/black_joker.svg" alt="">
+    <img class="card" src="../../../assets/playing-cards/black_joker.svg" alt="">
   </div>
   <div class="col-sm-2">
-    <img src="../../../assets/playing-cards/red_joker.svg" alt="">
+    <img class="card" src="../../../assets/playing-cards/red_joker.svg" alt="">
   </div>
   <div class="col-sm-2">
-    <img src="../../../assets/playing-cards/black_joker.svg" alt="">
+    <img class="card" src="../../../assets/playing-cards/black_joker.svg" alt="">
   </div>
   <div class="col-sm-2">
-    <img src="../../../assets/playing-cards/red_joker.svg" alt="">
+    <img class="card" src="../../../assets/playing-cards/red_joker.svg" alt="">
   </div>
 </div>
