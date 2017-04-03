@@ -1,12 +1,14 @@
 export interface Card {
     number: CardNumbers | number;
     shape: Shapes;
+    color: Color | number;
 }
 
 export class Card implements Card {
     constructor() {
         this.number = CardNumbers.Ace;
         this.shape = Shapes.Spades;
+        this.color = Color.Red;
     }
 }
 
@@ -23,4 +25,9 @@ export enum Shapes {
     Diamonds,
     Clubs,
     Hearts
+}
+
+export enum Color {
+    Red,
+    Black
 }

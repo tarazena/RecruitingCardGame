@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HowManyComponent } from './how-many.component';
+import { ConsoleLogComponent } from './console-log.component';
 
-describe('HowManyComponent', () => {
-  let component: HowManyComponent;
-  let fixture: ComponentFixture<HowManyComponent>;
+describe('ConsoleLogComponent', () => {
+  let component: ConsoleLogComponent;
+  let fixture: ComponentFixture<ConsoleLogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HowManyComponent ]
+      declarations: [ ConsoleLogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HowManyComponent);
+    fixture = TestBed.createComponent(ConsoleLogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

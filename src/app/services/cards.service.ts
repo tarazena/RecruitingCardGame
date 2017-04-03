@@ -1,12 +1,15 @@
-import { Card, CardNumbers, Shapes } from '../objects/cards';
+import { Card, CardNumbers, Shapes, Color } from '../objects/cards';
 import { Injectable } from '@angular/core';
-
+import { GeneratedCards, setGeneratedCards } from '../globals/globalCards';
 
 @Injectable()
 
 export class CardsService {
+    generatedCards: GeneratedCards;
 
-    getCards(): Card[] {
+    constructor() {}
+
+   getCards(): Card[] {
 
         let randomCards: Card[] = [];
         let isThere = false;
@@ -22,15 +25,17 @@ export class CardsService {
             }
             isThere = false;
         }
+        setGeneratedCards(randomCards);
         return randomCards;
     }
 }
 
 function generateRandomCard(): Card {
-    let randomCard: Card = { number: 1, shape: 2};
+    let randomCard: Card = { number: 1, shape: 2, color: 1};
     randomCard.number = randomIntFromInterval(1, 13);
     randomCard.shape = randomIntFromInterval(1, 4);
-    // console.log(randomCard.number + " " + randomCard.shape);
+    randomCard.color = randomIntFromInterval(1, 2);
+    console.log(randomCard.number + " " + randomCard.shape + " " + randomCard.color);
     return randomCard;
 }
 

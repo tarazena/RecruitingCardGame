@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { CardsService } from '../../services/cards.service';
+import { GeneratedCards, getGeneratedCards } from '../globals/globalCards';
 
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css'],
-  providers: [CardsService]
+  providers: [GeneratedCards]
 })
 export class QuestionsComponent implements OnInit {
-  cards = this.cardService.getCards();
 
-  constructor(private cardService: CardsService) { }
+  constructor(private genratedCards: GeneratedCards) { }
 
+  cards = getGeneratedCards();
   ngOnInit() {
   }
 

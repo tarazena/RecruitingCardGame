@@ -4,19 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AlertModule } from 'ng2-bootstrap';
 import { AppComponent } from './app.component';
-import { HowManyComponent } from './features/questions/how-many/how-many.component';
-import { QuestionsComponent } from './features/questions/questions.component';
-import { ResultsComponent } from './features/results/results.component';
-import { CardsComponent } from './features/cards/cards.component';
+import { ResultComponent } from './result/result.component';
+import { ConsoleLogComponent } from './console-log/console-log.component';
+import { RulesComponent } from './rules/rules.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HowManyComponent,
-    QuestionsComponent,
-    ResultsComponent,
-    CardsComponent
+    ResultComponent,
+    ConsoleLogComponent,
+    RulesComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
