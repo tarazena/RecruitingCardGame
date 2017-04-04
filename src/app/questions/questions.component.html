@@ -2,6 +2,24 @@
   questions works!
 </p>
 
-<div *ngFor="let card of cards">
-  {{card.number}}   {{card.shape}}  {{card.color}}
+<div>
+  Question One
+  <select>
+    <option *ngFor='let option of howManyDropDown'>{{option}}</option>
+  </select>
+    <!-- 2 How many drop downs -->
+  <select>
+      <option *ngFor='let cardOrSum of cardsOrSumDropDown'>{{cardOrSum}}</option>
+  </select>
+    <!--2nd Drop down is just shapes -->
+  <select>
+    <option value="" *ngFor='let areOrQues of areOrQuestion'>{{areOrQues}}</option>
+  </select>
+  <select name="" id="">
+    <option value="" *ngFor='let operat of operation'>{{operat}}</option>
+  </select>
+  <select name="" id="">
+    <option value="" *ngFor='let cd of card'>{{cd}}</option>
+  </select>
+  <div>?</div>
 </div>
