@@ -8,7 +8,7 @@ import { ResultComponent } from './result/result.component';
 import { ConsoleLogComponent } from './console-log/console-log.component';
 import { RulesComponent } from './rules/rules.component';
 import { QuestionsComponent } from './questions/questions.component';
-
+import { CardsService } from './services/cards.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { QuestionsComponent } from './questions/questions.component';
     HttpModule,
     AlertModule.forRoot()
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ CardsService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
