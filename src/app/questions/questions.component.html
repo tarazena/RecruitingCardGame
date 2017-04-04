@@ -1,25 +1,20 @@
-<p>
-  questions works!
-</p>
-
 <div>
-  Question One
   <select>
     <option *ngFor='let option of howManyDropDown'>{{option}}</option>
-  </select>
-    <!-- 2 How many drop downs -->
+  </select>  
   <select>
       <option *ngFor='let cardOrSum of cardsOrSumDropDown'>{{cardOrSum}}</option>
   </select>
-    <!--2nd Drop down is just shapes -->
   <select>
-    <option value="" *ngFor='let areOrQues of areOrQuestion'>{{areOrQues}}</option>
+    <option  *ngFor='let areOrQues of areOrQuestion'>{{areOrQues}}</option>
   </select>
-  <select name="" id="">
-    <option value="" *ngFor='let operat of operation'>{{operat}}</option>
+  <select>
+    <option  *ngFor='let operat of operation'>{{operat}}</option>
   </select>
-  <select name="" id="">
-    <option value="" *ngFor='let cd of card'>{{cd}}</option>
+  <select>
+    <option *ngFor='let cd of card'>{{cd}}</option>
   </select>
   <div>?</div>
+
+  <button (click)='askQuestion()'>Ask</button>
 </div>

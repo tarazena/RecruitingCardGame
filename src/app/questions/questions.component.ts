@@ -25,4 +25,12 @@ export class QuestionsComponent implements OnInit {
     this.cards = this.genratedCards.getCards();
   }
 
+  askQuestion() {
+    /*this function should call two services
+      one service should update the console log,
+      the other should call the questionService,
+      the question service will analyze the question, 
+      will call the CardsService and compare the results.
+    */
+  }
 }
