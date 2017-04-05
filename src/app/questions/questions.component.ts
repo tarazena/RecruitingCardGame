@@ -3,7 +3,7 @@ import { CardsService } from '../services/cards.service';
 import { Card } from '../objects/cards';
 import { areOrQuestionMark, cards, cardsOrSumQuestions, howManyOrWhatQuestions, operations } from '../objects/mock-questions';
 import { Question } from '../objects/questions';
-import { SecondQuestionPipe } from '../pipes/questionsPipes';
+import { SecondQuestionPipe, ThirdQuestionPipe } from '../pipes/questionsPipes';
 import { QuestionService } from '../services/questions.service';
 
 
@@ -38,10 +38,44 @@ export class QuestionsComponent implements OnInit {
     // this.genratedCards.getCards().then(x => this.cards = x);
   }
 
-  changeValue(val) {
-    this.howManyDropDown.value = val;
-    console.log('Action:' + this.howManyDropDown.value);
+  changeValue(ele, val) {
+    // console.log("ele.value = " + ele.value + ", val = " + val);
+    // ele.value = val;
   }
+
+  enableThirdQuestion(value) {
+    console.log('enable Third Question: ' + value);
+    switch (parseInt(value)) {
+      case 1: case 3: case 4: {
+        this.setShowOrHideQuestions(true, false);
+        break;
+      }
+      case 2: {
+        this.setShowOrHideQuestions(true, true);
+        break;
+      }
+      case 0: {
+        this.setShowOrHideQuestions(false, false);
+        break;
+      }
+      default:
+        this.setShowOrHideQuestions(false, false);
+        break;
+    }
+  }
+  resetThirdQuestion(thirdQuestion) {
+    console.log('reset');
+    console.log(typeof thirdQuestion);
+    if (typeof thirdQuestion !== 'undefined') {
+      console.log('Third Question: ' + thirdQuestion.value);
+      thirdQuestion.value = '';
+    }
+  }
+  setShowOrHideQuestions(thirdQuestion: boolean, fourthAndFifthQuestion: boolean) {
+    this.showThirdQuestion = thirdQuestion;
+    this.showFouthAndFifthQuestion = fourthAndFifthQuestion;
+  }
+
   askQuestion() {
     /*this function should call two services
       one service should update the console log,
@@ -49,73 +83,5 @@ export class QuestionsComponent implements OnInit {
       the question service will analyze the question,
       will call the CardsService and compare the results.
     */
-  }
-
-  getFirstQuestion(value) {
-    this.cardsOrSumDropDown = cardsOrSumQuestions;
-    switch (value) {
-      case '1': {
-        this.cardsOrSumDropDown = this.cardsOrSumDropDown.slice(1, 10);
-        this.areOrQuestion = areOrQuestionMark;
-        this.showThirdQuestion = false;
-        break;
-      }
-      case '2': {
-        this.cardsOrSumDropDown = this.cardsOrSumDropDown.slice(10, 12);
-        this.areOrQuestion = this.areOrQuestion.slice(2, 3);
-        this.showThirdQuestion = true;
-        break;
-      }
-      default: {
-        this.cardsOrSumDropDown = cardsOrSumQuestions;
-      }
-    }
-  }
-
-  getSecondQuestion(value) {
-    this.areOrQuestion = areOrQuestionMark;
-    switch (parseInt(value)) {
-      case 1: {
-        this.areOrQuestion = areOrQuestionMark;
-        this.showThirdQuestion = true;
-        this.showFouthAndFifthQuestion = false;
-        break;
-      }
-      case 2: {
-        this.areOrQuestion = this.areOrQuestion.slice(1, 2);
-        this.showThirdQuestion = true;
-        this.showFouthAndFifthQuestion = true;
-        break;
-      }
-      case 4: {
-        this.areOrQuestion = this.areOrQuestion.slice(0, 1);
-        this.showThirdQuestion = true;
-        this.showFouthAndFifthQuestion = false;
-        break;
-      }
-      case 3: {
-        this.areOrQuestion = this.areOrQuestion.slice(2, 3);
-        this.showThirdQuestion = true;
-        this.showFouthAndFifthQuestion = false;
-        break;
-      }
-      default: this.areOrQuestion = areOrQuestionMark;
-        this.showThirdQuestion = false;
-        this.showFouthAndFifthQuestion = false;
-        break;
-    }
-  }
-
-  getThirdQuestion(value) {
-    switch (parseInt(value)) {
-      case 1: case 3:
-        this.showFouthAndFifthQuestion = false;
-        break;
-      case 2:
-        this.showFouthAndFifthQuestion = true;
-      default:
-        this.showFouthAndFifthQuestion = false;
-        break;
-    }
   }
 }

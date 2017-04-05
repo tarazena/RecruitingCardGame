@@ -1,12 +1,12 @@
 <div>
-  <select #firstQuestion (change)='changeValue(firstQuestion.value)'>
+  <select #firstQuestion (change)='changeValue(firstQuestion, firstQuestion.value);enableThirdQuestion("X")'>
     <option *ngFor='let option of howManyDropDown' value="{{option.value}}">{{option.q}}</option>
   </select>  
-  <select #secondQuestion>
-      <option *ngFor='let cardOrSum of (cardsOrSumDropDown | secondQuestionFilter: firstQuestion.value)'>{{cardOrSum.q}}</option>
+  <select #secondQuestion (change)='changeValue(secondQuestion, secondQuestion.value); enableThirdQuestion(secondQuestion.value); resetThirdQuestion(thirdQuestion);'>
+      <option *ngFor='let cardOrSum of (cardsOrSumDropDown | secondQuestionFilter: firstQuestion.value)' value='{{cardOrSum.value}}'>{{cardOrSum.q}}</option>
   </select>
-  <select #thirdQuestion *ngIf="showThirdQuestion" (change)='getThirdQuestion(thirdQuestion.value)'>
-    <option  *ngFor='let areOrQues of areOrQuestion' value={{areOrQues.value}}>{{areOrQues.q}}</option>
+  <select #thirdQuestion *ngIf="showThirdQuestion" (change)='enableThirdQuestion(thirdQuestion.value)'>
+    <option  *ngFor='let areOrQues of (areOrQuestion | thirdQuestionFilter: secondQuestion.value)' value={{areOrQues.value}}>{{areOrQues.q}}</option>
   </select>
   <select *ngIf="showFouthAndFifthQuestion">
     <option  *ngFor='let operat of operation' value='{{operat.value}}' >{{operat.q}}</option>

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { SecondQuestionPipe } from './questionsPipes';
+import { SecondQuestionPipe, ThirdQuestionPipe } from './questionsPipes';
 
 @NgModule({
     imports: [],
-    declarations: [SecondQuestionPipe],
-    exports: [SecondQuestionPipe]
+    declarations: [SecondQuestionPipe, ThirdQuestionPipe],
+    exports: [SecondQuestionPipe, ThirdQuestionPipe]
 })
 
 export class PipeModule {
