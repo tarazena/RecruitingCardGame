@@ -12,7 +12,7 @@ export class CardsService {
         this.generatedCards = [];
     }
 
-    getCards(): Card[] {
+    getCards(): Promise<Card[]> {
         if (!this.didGenerateCards) {
             let randomCards: Card[] = [];
             let isThere = false;
@@ -30,9 +30,9 @@ export class CardsService {
             }
             this.didGenerateCards = true;
             this.generatedCards = randomCards;
-            return randomCards;
+            return Promise.resolve(randomCards);
         } else {
-            return this.generatedCards;
+            return Promise.resolve(this.generatedCards);
         }
     }
 

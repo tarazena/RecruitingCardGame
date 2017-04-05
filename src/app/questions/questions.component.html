@@ -1,20 +1,18 @@
 <div>
-  <select>
-    <option *ngFor='let option of howManyDropDown'>{{option}}</option>
+  <select #firstQuestion (change)='getFirstQuestion(firstQuestion.value)'>
+    <option *ngFor='let option of howManyDropDown' value="{{option.id}}">{{option.q}}</option>
   </select>  
-  <select>
-      <option *ngFor='let cardOrSum of cardsOrSumDropDown'>{{cardOrSum}}</option>
+  <select #secondQuestion (change)='getSecondQuestion(secondQuestion.value)'>
+      <option *ngFor='let cardOrSum of cardsOrSumDropDown' value='{{cardOrSum.id}}'>{{cardOrSum.q}}</option>
   </select>
-  <select>
-    <option  *ngFor='let areOrQues of areOrQuestion'>{{areOrQues}}</option>
+  <select #thirdQuestion *ngIf="showThirdQuestion" (change)='getThirdQuestion(thirdQuestion.value)'>
+    <option  *ngFor='let areOrQues of areOrQuestion' value={{areOrQues.id}}>{{areOrQues.q}}</option>
   </select>
-  <select>
-    <option  *ngFor='let operat of operation'>{{operat}}</option>
+  <select *ngIf="showFouthAndFifthQuestion">
+    <option  *ngFor='let operat of operation' value='{{operat.id}}' >{{operat.q}}</option>
   </select>
-  <select>
+  <select *ngIf="showFouthAndFifthQuestion">
     <option *ngFor='let cd of card'>{{cd}}</option>
   </select>
-  <div>?</div>
-
   <button (click)='askQuestion()'>Ask</button>
 </div>
