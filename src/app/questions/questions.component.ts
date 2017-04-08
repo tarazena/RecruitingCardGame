@@ -5,6 +5,7 @@ import { areOrQuestionMark, cards, cardsOrSumQuestions, howManyOrWhatQuestions, 
 import { Question } from '../objects/questions';
 import { SecondQuestionPipe, ThirdQuestionPipe } from '../pipes/questionsPipes';
 import { QuestionService } from '../services/questions.service';
+import { CompareService } from "../services/compare.service";
 
 
 @Component({
@@ -25,7 +26,9 @@ export class QuestionsComponent implements OnInit {
   operation;
   card;
 
-  constructor(private genratedCards: CardsService, private questionService: QuestionService) {
+  constructor(private genratedCards: CardsService,
+    private questionService: QuestionService,
+    private compareService: CompareService) {
 
   }
 
@@ -76,12 +79,23 @@ export class QuestionsComponent implements OnInit {
     this.showFouthAndFifthQuestion = fourthAndFifthQuestion;
   }
 
-  askQuestion() {
+  askQuestion(q1, q2, q3, q4, q5) {
     /*this function should call two services
       one service should update the console log,
       the other should call the questionService,
       the question service will analyze the question,
       will call the CardsService and compare the results.
     */
+
+    if (typeof q1 !== 'undefined' && typeof q2 !== 'undefined' && typeof q3 !== 'undefined') {
+      if (typeof q4 !== 'undefined' && typeof q5 !== 'undefined') {
+        this.compareService.ask(q1, q2, q3, q4, q5);
+      } else {
+        this.compareService.ask(q1, q2, q3);
+      }
+    } else {
+      // It means there isnt selections
+      return;
+    }
   }
 }

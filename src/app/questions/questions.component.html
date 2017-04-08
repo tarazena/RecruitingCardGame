@@ -8,11 +8,11 @@
   <select #thirdQuestion *ngIf="showThirdQuestion" (change)='enableThirdQuestion(thirdQuestion.value)'>
     <option  *ngFor='let areOrQues of (areOrQuestion | thirdQuestionFilter: secondQuestion.value)' value={{areOrQues.value}}>{{areOrQues.q}}</option>
   </select>
-  <select *ngIf="showFouthAndFifthQuestion">
+  <select #forthQuestion *ngIf="showFouthAndFifthQuestion">
     <option  *ngFor='let operat of operation' value='{{operat.value}}' >{{operat.q}}</option>
   </select>
-  <select *ngIf="showFouthAndFifthQuestion">
+  <select #fifthQuestion *ngIf="showFouthAndFifthQuestion">
     <option *ngFor='let cd of card'>{{cd}}</option>
   </select>
-  <button (click)='askQuestion()'>Ask</button>
+  <button (click)='askQuestion(firstQuestion.value, secondQuestion.value, thirdQuestion.value, forthQuestion.value, fifthQuestion.value)'>Ask</button>
 </div>
