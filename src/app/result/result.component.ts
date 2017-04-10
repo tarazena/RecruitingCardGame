@@ -13,7 +13,7 @@ export class ResultComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cardsService.getCards().then(x => this.cards = x)
+    this.cardsService.getCardsContainingStrings().then(x => this.cards = x);
   }
 
 }

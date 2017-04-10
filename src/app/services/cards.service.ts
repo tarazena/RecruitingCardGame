@@ -36,6 +36,14 @@ export class CardsService {
         }
     }
 
+    getCardsContainingStrings(): Promise<Card[]> {
+        return Promise.resolve(this.generatedCards.map(function (x) {
+            x.color = Color[x.color];
+            x.shape = Shapes[x.shape];
+            return x;
+        }))
+    }
+
     private generateRandomCard(): Card {
         let randomCard: Card = { number: 1, shape: 2, color: 1 };
         randomCard.number = this.randomIntFromInterval(1, 13);

@@ -1,7 +1,7 @@
 export interface Card {
     number: CardNumbers | number;
-    shape: Shapes;
-    color: Color | number;
+    shape: Shapes | string;
+    color: Color | number | string;
 }
 
 export class Card implements Card {
@@ -14,20 +14,20 @@ export class Card implements Card {
 
 
 export enum CardNumbers {
-     Ace = 1,
-     Jack = 11,
-     Queen = 12,
-     King = 13
+     "Ace" = 1,
+     "Jack" = 11,
+     "Queen" = 12,
+     "King" = 13
 }
 
 export enum Shapes {
-    Clubs = 1,
-    Hearts,
-    Diamonds,
-    Spades
+    "Clubs" = 1,
+    "Hearts",
+    "Diamonds",
+    "Spades"
 }
 
 export enum Color {
-    Red,
-    Black
+    "Red" = 1,
+    "Black" = 2
 }
