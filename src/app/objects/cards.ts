@@ -21,10 +21,10 @@ export enum CardNumbers {
 }
 
 export enum Shapes {
-    Spades,
+    Clubs = 1,
+    Hearts,
     Diamonds,
-    Clubs,
-    Hearts
+    Spades
 }
 
 export enum Color {

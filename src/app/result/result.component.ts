@@ -7,11 +7,13 @@ import { CardsService } from '../services/cards.service';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  cards = this.cardsService.getCards();
-
-  constructor(private cardsService: CardsService) { }
+  
+  cards;
+  constructor(private cardsService: CardsService) { 
+  }
 
   ngOnInit() {
+    this.cardsService.getCards().then(x => this.cards = x)
   }
 
 }

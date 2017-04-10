@@ -42,7 +42,7 @@ export class CompareService {
         switch (q2.selectedOptions[0].value) {
             case '1':
                 // shapes
-                filteredValu = this.cards.filter(x => x.shape === q2).map(x => x.number);
+                filteredValu = this.cards.filter(shape => shape === parseInt(q2.selectedOptions[0].getAttribute('selectedShape')));
                 this.operation(filteredValu, q4, q5);
                 break;
             case '2':
@@ -57,21 +57,21 @@ export class CompareService {
 
     private operation(filteredValue, q4, q5) {
         console.log('Compare Service, running operation');
-        switch (q4) {
+        switch (q4.selectedOptions[0].innerText) {
             case '>=':
-                filteredValue.filter(x => x >= q5).length;
+                console.log(filteredValue.filter(x => x >= q5.selectedOptions[0].value).length);
                 break;
             case '>':
-                filteredValue.filter(x => x > q5).length;
+                console.log(filteredValue.filter(x => x > q5.selectedOptions[0].value).length);
                 break;
             case '=':
-                filteredValue.filter(x => x = q5).length;
+                console.log(filteredValue.filter(x => x = q5.selectedOptions[0].value).length);
                 break;
             case '<':
-                filteredValue.filter(x => x < q5).length;
+                console.log(filteredValue.filter(x => x < q5.selectedOptions[0].value).length);
                 break;
             case '<=':
-                filteredValue.filter(x => x <= q5).length;
+                console.log(filteredValue.filter(x => x <= q5.selectedOptions[0].value).length);
                 break;
 
             default:
@@ -84,7 +84,7 @@ export class CompareService {
         switch (q2.selectedOptions[0].value) {
             case '1':
                 // shapes
-                console.log(this.cards.map(card => card.shape).filter(shape => shape === parseInt(q2.selectedOptions[0].value)).length);
+                console.log(this.cards.map(card => card.shape).filter(shape => shape === parseInt(q2.selectedOptions[0].getAttribute('selectedShape'))).length);
                 break;
             case '4': case '5':
                 // color

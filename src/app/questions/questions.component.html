@@ -3,7 +3,7 @@
     <option *ngFor='let option of howManyDropDown' value="{{option.value}}">{{option.q}}</option>
   </select>  
   <select #secondQuestion>
-      <option *ngFor='let cardOrSum of cardsOrSumDropDown' value='{{cardOrSum.value}}'>{{cardOrSum.q}}</option>
+      <option *ngFor='let cardOrSum of cardsOrSumDropDown' value='{{cardOrSum.value}}' [attr.selectedShape]='cardOrSum.selectedShape'>{{cardOrSum.q}}</option>
   </select>
   <select #thirdQuestion>
     <option  *ngFor='let areOrQues of areOrQuestion' value={{areOrQues.value}}>{{areOrQues.q}}</option>
@@ -12,7 +12,7 @@
     <option  *ngFor='let operat of operation' value='{{operat.value}}' >{{operat.q}}</option>
   </select>
   <select #fifthQuestion>
-    <option *ngFor='let cd of card'>{{cd}}</option>
+    <option *ngFor='let cd of card' value='{{cd.value}}'>{{cd.q}}</option>
   </select>
   <button (click)='askQuestion(firstQuestion, secondQuestion, thirdQuestion, forthQuestion, fifthQuestion)'>Ask</button>
 </div>
