@@ -1,5 +1,5 @@
 import { CardsService } from "./cards.service";
-
+import { Shapes, Color } from "../objects/cards";
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -39,7 +39,7 @@ export class CompareService {
     private howManyFiveQuestions(q2, q4, q5) {
         console.log('Compare Service, running how many 5 Q\'s');
         let filteredValu;
-        switch (q2) {
+        switch (q2.selectedOptions[0].value) {
             case '1':
                 // shapes
                 filteredValu = this.cards.filter(x => x.shape === q2).map(x => x.number);
@@ -86,21 +86,21 @@ export class CompareService {
                 // shapes
                 console.log(this.cards.map(card => card.shape).filter(shape => shape === parseInt(q2.selectedOptions[0].value)).length);
                 break;
-            case '4':
+            case '4': case '5':
                 // color
-                console.log(this.cards.map(card => card.color).filter(shape => shape === parseInt(q2.selectedOptions[0].value)).length);
+                console.log(this.cards.map(card => card.color).filter(shape => shape === (q2.selectedOptions[0].value - 3)).length);
                 break;
-            case '3':
+            case '6':
                 // Face Cards
-                console.log(this.cards.map(card => card.number).filter(number => number >= 11));
+                console.log(this.cards.map(card => card.number).filter(number => number >= 11).length);
                 break;
-            case '2':
+            case '7':
                 // even cards
-                console.log(this.cards.map(card => card.number).filter(number => number % 2 === 0));
+                console.log(this.cards.map(card => card.number).filter(number => number % 2 === 0).length);
                 break;
-            case '5':
+            case '8':
                 // odd cards
-                console.log(this.cards.map(card => card.number).filter(number => number % 2 !== 0));
+                console.log(this.cards.map(card => card.number).filter(number => number % 2 !== 0).length);
                 break;
             default:
                 break;

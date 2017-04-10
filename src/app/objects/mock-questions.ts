@@ -11,13 +11,13 @@ export const cardsOrSumQuestions = [
     { 'value': 1, 'q': 'Hearts' },
     { 'value': 1, 'q': 'Spades' },
     { 'value': 2, 'q': 'Cards' },
-    { 'value': 3, 'q': 'Red Cards' },
-    { 'value': 4, 'q': 'Black Cards' },
-    { 'value': 5, 'q': 'Face Cards' },
-    { 'value': 6, 'q': 'Even Value Cards' },
-    { 'value': 7, 'q': 'Odd Value Cards' },
-    { 'value': 8, 'q': 'Product' },
-    { 'value': 9, 'q': 'Sum' }
+    { 'value': 4, 'q': 'Red Cards' },
+    { 'value': 5, 'q': 'Black Cards' },
+    { 'value': 6, 'q': 'Face Cards' },
+    { 'value': 7, 'q': 'Even Value Cards' },
+    { 'value': 8, 'q': 'Odd Value Cards' },
+    { 'value': 3, 'q': 'Product' },
+    { 'value': 3, 'q': 'Sum' }
 ]
 
 export const areOrQuestionMark = [
@@ -37,5 +37,6 @@ export const operations = [
 ]
 
 export const cards = [
-    'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'
+    'A', 
+    '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'
 ]
