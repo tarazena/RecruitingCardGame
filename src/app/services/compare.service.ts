@@ -13,10 +13,11 @@ export class CompareService {
     cards = this.cardsService.getCards().then(x => this.cards = x);
 
     ask(q1, q2, q3, q4?, q5?) {
-        switch (q1) {
-            case 1:
+        console.log('Compare Service, Ask!');
+        switch (q1.selectedOptions[0].value) {
+            case '1': this.runHowMany(q2, q3, q4, q5);
                 break;
-            case 2: this.runWhatIsThe(q2);
+            case '2': this.runWhatIsThe(q2);
                 break;
             default:
                 break;
@@ -25,36 +26,75 @@ export class CompareService {
 
     private runHowMany(q2, q3, q4?, q5?) {
         console.log('Compare Service, running how many');
-        switch (q3) {
+        switch (q3.selectedOptions[0].innerText) {
             case '?': this.howManyThreeQuestions(q2);
                 break;
-            case 'are':
+            case 'are': this.howManyFiveQuestions(q2, q4, q5);
                 break;
             default:
                 break;
         }
     }
 
-    private howManyFiveQuestions(q2, q4, q5) {}
-
-    private operation() {}
-
-    private howManyThreeQuestions(q2) {
-        console.log('Compare Service, running how many three Q\'s');
+    private howManyFiveQuestions(q2, q4, q5) {
+        console.log('Compare Service, running how many 5 Q\'s');
+        let filteredValu;
         switch (q2) {
             case '1':
                 // shapes
-                console.log(this.cards.map(card => card.shapes).filter(shape => shape === q2));
+                filteredValu = this.cards.filter(x => x.shape === q2).map(x => x.number);
+                this.operation(filteredValu, q4, q5);
                 break;
             case '2':
+                // cards
+                filteredValu = this.cards.map(x => x.number);
+                this.operation(filteredValu, q4, q5);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private operation(filteredValue, q4, q5) {
+        console.log('Compare Service, running operation');
+        switch (q4) {
+            case '>=':
+                filteredValue.filter(x => x >= q5).length;
+                break;
+            case '>':
+                filteredValue.filter(x => x > q5).length;
+                break;
+            case '=':
+                filteredValue.filter(x => x = q5).length;
+                break;
+            case '<':
+                filteredValue.filter(x => x < q5).length;
+                break;
+            case '<=':
+                filteredValue.filter(x => x <= q5).length;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private howManyThreeQuestions(q2) {
+        console.log('Compare Service, running how many three Q\'s');
+        switch (q2.selectedOptions[0].value) {
+            case '1':
+                // shapes
+                console.log(this.cards.map(card => card.shape).filter(shape => shape === parseInt(q2.selectedOptions[0].value)).length);
+                break;
+            case '4':
                 // color
-                console.log(this.cards.map(card => card.color).filter(color => color === q2));
+                console.log(this.cards.map(card => card.color).filter(shape => shape === parseInt(q2.selectedOptions[0].value)).length);
                 break;
             case '3':
                 // Face Cards
                 console.log(this.cards.map(card => card.number).filter(number => number >= 11));
                 break;
-            case '4':
+            case '2':
                 // even cards
                 console.log(this.cards.map(card => card.number).filter(number => number % 2 === 0));
                 break;
@@ -69,10 +109,10 @@ export class CompareService {
 
     private runWhatIsThe(q2) {
         console.log('Compare Service, Running What is the');
-        switch (q2) {
-            case 1: this.sum();
+        switch (q2.selectedOptions[0].innerText) {
+            case 'Sum': this.sum();
                 break;
-            case 2: this.product();
+            case 'Product': this.product();
                 break;
             default:
                 break;

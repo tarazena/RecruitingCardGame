@@ -10,6 +10,7 @@ import { RulesComponent } from './rules/rules.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { CardsService } from './services/cards.service';
 import { PipeModule } from './pipes/pipeModule';
+import { CompareService } from './services/compare.service'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { PipeModule } from './pipes/pipeModule';
     AlertModule.forRoot(), 
     PipeModule.forRoot()
   ],
-  providers: [ CardsService ],
+  providers: [ CardsService, CompareService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

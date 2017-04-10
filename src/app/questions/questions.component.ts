@@ -89,8 +89,10 @@ export class QuestionsComponent implements OnInit {
 
     if (typeof q1 !== 'undefined' && typeof q2 !== 'undefined' && typeof q3 !== 'undefined') {
       if (typeof q4 !== 'undefined' && typeof q5 !== 'undefined') {
+        console.log('Asking 5 Qs');
         this.compareService.ask(q1, q2, q3, q4, q5);
       } else {
+        console.log('Asking 3 Qs');
         this.compareService.ask(q1, q2, q3);
       }
     } else {
