@@ -1,6 +1,9 @@
 <footer class="navbar-fixed-bottom">
   <div class="container text-center">
-    <div class="row">
+    <div class="row" style="
+          padding-bottom: 10px;
+          padding-top: 10px;
+          background-color: lightblue;">
       <select #firstQuestion class="selectpicker" data-style="btn-primary">
       <option *ngFor='let option of howManyDropDown' value="{{option.value}}">{{option.q}}</option>
       </select>

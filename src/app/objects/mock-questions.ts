@@ -37,6 +37,7 @@ export const operations = [
 ]
 
 export const cards = [
+    { 'value': 0, 'q': '' },
     { 'value': 1, 'q': 'A' },
     { 'value': 2, 'q': '2' },
     { 'value': 3, 'q': '3' },
