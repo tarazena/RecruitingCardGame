@@ -1,7 +1,7 @@
 export interface Card {
     number: CardNumbers | number;
     shape: Shapes | string;
-    color: Color | number | string;
+    color?: Color | number | string;
 }
 
 export class Card implements Card {

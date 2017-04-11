@@ -90,7 +90,7 @@ export class QuestionsComponent implements OnInit {
     */
     
     if (typeof q1 !== 'undefined' && typeof q2 !== 'undefined' && typeof q3 !== 'undefined') {
-      if (typeof q4 !== 'undefined' && typeof q5 !== 'undefined') {
+      if ((typeof q4 !== 'undefined' && typeof q5 !== 'undefined') && (q4.selectedOptions[0].innerText !== '' && q5.selectedOptions[0].innerText !== '')) {
         // console.log('Asking 5 Qs');
         this.logService.addQuestion(q1.selectedOptions[0].innerText + " " + q2.selectedOptions[0].innerText + " " + q3.selectedOptions[0].innerText + " " + q4.selectedOptions[0].innerText + " " + q5.selectedOptions[0].innerText + " ?")
         this.compareService.ask(q1, q2, q3, q4, q5);

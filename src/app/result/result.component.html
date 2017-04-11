@@ -1,32 +1,20 @@
-<div>
+<div class="centered text-center">
   <div *ngFor="let guessCard of guessCards" style="width: 100px;
     display: inline-block;">
     <div class="card" style="width: 100px; display: block">
       <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
       <div class="card-block">
-        <select #shape>Shape
-      <option>Spades</option>
-      <option>Hearts</option>
-      <option>Diamonds</option>
-      <option>Clubs</option>
+        <select #shape >
+      <option *ngFor='let shapeOp of shapes' value='{{shapeOp.value}}'>{{shapeOp.q}}</option>
     </select>
-        <select #number style="width: 90px;">Number
-      <option>A</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
-      <option>Jack</option>
-      <option>Queen</option>
-      <option>King</option>
+        <select #number style="width: 90px;" >
+      <option *ngFor="let numberOp of cardOptions" value='{{numberOp.value}}'>{{numberOp.q}}</option>
     </select>
       </div>
     </div>
 
+  </div>
+<div class="centered text-center">
+  <button>Guess</button>
   </div>
 </div>

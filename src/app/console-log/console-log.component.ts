@@ -9,7 +9,7 @@ import { LogService } from "../services/log.service";
 
 export class ConsoleLogComponent implements OnInit {
 
-  logs: string[];
+  logs: [{}];
 
   constructor(private logService: LogService) { }
 

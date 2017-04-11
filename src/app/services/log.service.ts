@@ -4,14 +4,23 @@ import { } from "../console-log/console-log.component";
 @Injectable()
 
 export class LogService {
-    log: string[];
+    // log: string[];
+    log: [{
+        answer: string,
+        question: string
+    }];
+    
     question: string;
     constructor() {
-        this.log = [];
+        this.log = [{
+            answer: '',
+            question: ''
+        }];
+
         this.question = '';
     }
 
-    getLogs(): string[] {
+    getLogs(): [{}] {
         return this.log;
     }
     
@@ -20,8 +29,12 @@ export class LogService {
     }
 
     addAnswer(a: string) {
-        this.log.unshift(a);
-        this.log.unshift(this.question);
+        this.log.unshift({
+            answer: a,
+            question: this.question
+        })
+        // this.log.unshift(a);
+        // this.log.unshift(this.question);
     }
 }
 

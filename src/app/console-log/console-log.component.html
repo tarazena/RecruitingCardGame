@@ -8,14 +8,15 @@
   </footer>
 </div>  -->
 
-<footer class="navbar-fixed-bottom" style="bottom: 30px; height: 80px; overflow-y: auto;">
+<footer class="navbar-fixed-bottom" style="bottom: 30px; height: 50px; overflow-y: auto;">
   <div class="text-center">
     <div class="row" style="
           padding-bottom: 10px;
           padding-top: 10px;
-          background-color: yellow;">
+          background-color: yellow;
+          min-height: 35px;">
       <div *ngFor='let log of logs'>
-    <p>{{log}}</p>
+    <p>{{log.question}}    {{log.answer}}</p>
   </div>
     </div>
   </div>
