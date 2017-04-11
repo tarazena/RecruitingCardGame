@@ -6,6 +6,7 @@ import { Question } from '../objects/questions';
 import { SecondQuestionPipe, ThirdQuestionPipe } from '../pipes/questionsPipes';
 import { QuestionService } from '../services/questions.service';
 import { CompareService } from "../services/compare.service";
+import { LogService } from "../services/log.service";
 
 
 @Component({
@@ -28,7 +29,8 @@ export class QuestionsComponent implements OnInit {
 
   constructor(private genratedCards: CardsService,
     private questionService: QuestionService,
-    private compareService: CompareService) {
+    private compareService: CompareService,
+    private logService: LogService) {
 
   }
 
@@ -86,13 +88,15 @@ export class QuestionsComponent implements OnInit {
       the question service will analyze the question,
       will call the CardsService and compare the results.
     */
-
+    
     if (typeof q1 !== 'undefined' && typeof q2 !== 'undefined' && typeof q3 !== 'undefined') {
       if (typeof q4 !== 'undefined' && typeof q5 !== 'undefined') {
-        console.log('Asking 5 Qs');
+        // console.log('Asking 5 Qs');
+        this.logService.addQuestion(q1.selectedOptions[0].innerText + " " + q2.selectedOptions[0].innerText + " " + q3.selectedOptions[0].innerText + " " + q4.selectedOptions[0].innerText + " " + q5.selectedOptions[0].innerText + " ?")
         this.compareService.ask(q1, q2, q3, q4, q5);
       } else {
-        console.log('Asking 3 Qs');
+        // console.log('Asking 3 Qs');
+        this.logService.addQuestion(q1.selectedOptions[0].innerText + " " + q2.selectedOptions[0].innerText + " " + q3.selectedOptions[0].innerText)
         this.compareService.ask(q1, q2, q3);
       }
     } else {

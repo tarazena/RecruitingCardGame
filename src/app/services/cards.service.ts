@@ -49,7 +49,7 @@ export class CardsService {
         randomCard.number = this.randomIntFromInterval(1, 13);
         randomCard.shape = this.randomIntFromInterval(1, 4);
         randomCard.color = this.randomIntFromInterval(1, 2);
-        console.log(randomCard.number + " " + randomCard.shape + " " + randomCard.color);
+        // console.log(randomCard.number + " " + randomCard.shape + " " + randomCard.color);
         return randomCard;
     }
 

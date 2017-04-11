@@ -1,11 +1,32 @@
-<p>
-  result works!
-</p>
 <div>
-  <p>Generated Cards</p>
-  <ul>
-    <li *ngFor="let card of cards">
-      <p>{{card.number}}    {{card.shape}}     {{card.color}}</p>
-    </li>
-  </ul>
+  <div *ngFor="let guessCard of guessCards" style="width: 100px;
+    display: inline-block;">
+    <div class="card" style="width: 100px; display: block">
+      <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
+      <div class="card-block">
+        <select #shape>Shape
+      <option>Spades</option>
+      <option>Hearts</option>
+      <option>Diamonds</option>
+      <option>Clubs</option>
+    </select>
+        <select #number style="width: 90px;">Number
+      <option>A</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>Jack</option>
+      <option>Queen</option>
+      <option>King</option>
+    </select>
+      </div>
+    </div>
+
+  </div>
 </div>

@@ -1,19 +1,20 @@
 import { CardsService } from "./cards.service";
 import { Shapes, Color } from "../objects/cards";
 import { Injectable } from '@angular/core';
+import { LogService } from "./log.service";
 
 @Injectable()
 
 export class CompareService {
-    // tslint:disable-next-line:no-trailing-whitespace
 
-    constructor(private cardsService: CardsService) {
+    constructor(private cardsService: CardsService,
+        private logService: LogService) {
     }
 
     cards = this.cardsService.getCards().then(x => this.cards = x);
 
     ask(q1, q2, q3, q4?, q5?) {
-        console.log('Compare Service, Ask!');
+        // console.log('Compare Service, Ask!');
         switch (q1.selectedOptions[0].value) {
             case '1': this.runHowMany(q2, q3, q4, q5);
                 break;
@@ -25,7 +26,7 @@ export class CompareService {
     }
 
     private runHowMany(q2, q3, q4?, q5?) {
-        console.log('Compare Service, running how many');
+        // console.log('Compare Service, running how many');
         switch (q3.selectedOptions[0].innerText) {
             case '?': this.howManyThreeQuestions(q2);
                 break;
@@ -37,7 +38,7 @@ export class CompareService {
     }
 
     private howManyFiveQuestions(q2, q4, q5) {
-        console.log('Compare Service, running how many 5 Q\'s');
+        // console.log('Compare Service, running how many 5 Q\'s');
         let filteredValu;
         switch (q2.selectedOptions[0].value) {
             case '1':
@@ -55,60 +56,64 @@ export class CompareService {
         }
     }
 
-    private operation(filteredValue : number[], q4, q5) {
-        console.log('Compare Service, running operation');
+    private operation(filteredValue: number[], q4, q5) {
+        // console.log('Compare Service, running operation');
+        let result;
         switch (q4.selectedOptions[0].innerText) {
             case '>=':
-                console.log(filteredValue.filter(x => x >= q5.selectedOptions[0].value).length);
+                result = filteredValue.filter(x => x >= q5.selectedOptions[0].value).length;
                 break;
             case '>':
-                console.log(filteredValue.filter(x => x > q5.selectedOptions[0].value).length);
+                result = filteredValue.filter(x => x > q5.selectedOptions[0].value).length;
                 break;
             case '=':
-                console.log(filteredValue.filter(x => x === parseInt(q5.selectedOptions[0].value)).length);
+                result = filteredValue.filter(x => x === parseInt(q5.selectedOptions[0].value)).length;
                 break;
             case '<':
-                console.log(filteredValue.filter(x => x < q5.selectedOptions[0].value).length);
+                result = filteredValue.filter(x => x < q5.selectedOptions[0].value).length;
                 break;
             case '<=':
-                console.log(filteredValue.filter(x => x <= q5.selectedOptions[0].value).length);
+                result = filteredValue.filter(x => x <= q5.selectedOptions[0].value).length;
                 break;
 
             default:
                 break;
         }
+        this.logService.addAnswer(result);
     }
 
     private howManyThreeQuestions(q2) {
-        console.log('Compare Service, running how many three Q\'s');
+        // console.log('Compare Service, running how many three Q\'s');
+        let result;
         switch (q2.selectedOptions[0].value) {
             case '1':
                 // shapes
-                console.log(this.cards.map(card => Shapes[card.shape]).filter(shape => shape === parseInt(q2.selectedOptions[0].getAttribute('selectedShape'))).length);
+                result = this.cards.map(card => Shapes[card.shape]).filter(shape => shape === parseInt(q2.selectedOptions[0].getAttribute('selectedShape'))).length;
                 break;
             case '4': case '5':
                 // color
-                console.log(this.cards.map(card => card.color).filter(color => color === (q2.selectedOptions[0].innerText.split(" ")[0])).length);
+                result = this.cards.map(card => card.color).filter(color => color === (q2.selectedOptions[0].innerText.split(" ")[0])).length;
                 break;
             case '6':
                 // Face Cards
-                console.log(this.cards.map(card => card.number).filter(number => number >= 11).length);
+                result = this.cards.map(card => card.number).filter(number => number >= 11).length;
                 break;
             case '7':
                 // even cards
-                console.log(this.cards.map(card => card.number).filter(number => number % 2 === 0).length);
+                result = this.cards.map(card => card.number).filter(number => number % 2 === 0).length;
                 break;
             case '8':
                 // odd cards
-                console.log(this.cards.map(card => card.number).filter(number => number % 2 !== 0).length);
+                result = this.cards.map(card => card.number).filter(number => number % 2 !== 0).length;
                 break;
             default:
                 break;
         }
+        this.logService.addAnswer(result);
     }
 
     private runWhatIsThe(q2) {
-        console.log('Compare Service, Running What is the');
+        // console.log('Compare Service, Running What is the');
         switch (q2.selectedOptions[0].innerText) {
             case 'Sum': this.sum();
                 break;
@@ -120,10 +125,12 @@ export class CompareService {
     }
 
     private sum() {
-        console.log(this.cards.map(card => card.number).reduce((f, l) => f + l));
+       let result = this.cards.map(card => card.number).reduce((f, l) => f + l);
+       this.logService.addAnswer(result);
     }
 
     private product() {
-        console.log(this.cards.map(card => card.number).reduce((f, l) => f * l));
+        let result = this.cards.map(card => card.number).reduce((f, l) => f * l);
+        this.logService.addAnswer(result);
     }
 }

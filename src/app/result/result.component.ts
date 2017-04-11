@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsService } from '../services/cards.service';
+import { Card } from "../objects/cards";
 
 @Component({
   selector: 'app-result',
@@ -7,13 +8,12 @@ import { CardsService } from '../services/cards.service';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  
-  cards;
+  guessCards: Card[];
   constructor(private cardsService: CardsService) { 
   }
 
   ngOnInit() {
-    this.cardsService.getCardsContainingStrings().then(x => this.cards = x);
+    this.guessCards = [new Card, new Card,new Card,new Card,new Card]
   }
 
 }
