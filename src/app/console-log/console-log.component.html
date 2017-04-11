@@ -1,10 +1,22 @@
-<p>
-  console-log works!
-</p>
+
+<!--<p>console</p>
 <div>
-  <ul>
-    <li *ngFor='let log of logs'>
-      {{log}}
-    </li>
-  </ul>
-</div>
+  <footer class="navbar-fixed-bottom">
+  <div *ngFor='let log of logs'>
+    <p>{{log}}</p>
+  </div>
+  </footer>
+</div>  -->
+
+<footer class="navbar-fixed-bottom" style="bottom: 30px; height: 80px; overflow-y: auto;">
+  <div class="text-center">
+    <div class="row" style="
+          padding-bottom: 10px;
+          padding-top: 10px;
+          background-color: yellow;">
+      <div *ngFor='let log of logs'>
+    <p>{{log}}</p>
+  </div>
+    </div>
+  </div>
+</footer>

@@ -5,9 +5,10 @@ import { } from "../console-log/console-log.component";
 
 export class LogService {
     log: string[];
-
+    question: string;
     constructor() {
         this.log = [];
+        this.question = '';
     }
 
     getLogs(): string[] {
@@ -15,11 +16,12 @@ export class LogService {
     }
     
     addQuestion(q: string) {
-        this.log.push(q)
+        this.question = q;
     }
 
     addAnswer(a: string) {
-        this.log.push(a);
+        this.log.unshift(a);
+        this.log.unshift(this.question);
     }
 }
 
