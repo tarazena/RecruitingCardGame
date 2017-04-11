@@ -1,20 +1,70 @@
 <div class="centered text-center">
-  <div *ngFor="let guessCard of guessCards" style="width: 100px;
-    display: inline-block;">
-    <div class="card" style="width: 100px; display: block">
+  <div style="width: 100px; display: inline-block;">
+    <div class="card addPadding" style="width: 100px; display: block">
       <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
       <div class="card-block">
-        <select #shape >
-      <option *ngFor='let shapeOp of shapes' value='{{shapeOp.value}}'>{{shapeOp.q}}</option>
+        <select #shape1>
+      <option *ngFor='let shapeOp of shapes' value='{{shapeOp.value}}' [attr.selectedShape]='shapeOp.selectedShape'>{{shapeOp.q}}</option>
     </select>
-        <select #number style="width: 90px;" >
+        <select #number1 style="width: 90px;">
       <option *ngFor="let numberOp of cardOptions" value='{{numberOp.value}}'>{{numberOp.q}}</option>
     </select>
       </div>
     </div>
-
   </div>
-<div class="centered text-center">
-  <button>Guess</button>
+  <div style="width: 100px; display: inline-block;">
+    <div class="card addPadding" style="width: 100px; display: block">
+      <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
+      <div class="card-block">
+        <select #shape2>
+      <option *ngFor='let shapeOp of shapes' value='{{shapeOp.value}}' [attr.selectedShape]='shapeOp.selectedShape'>{{shapeOp.q}}</option>
+    </select>
+        <select #number2 style="width: 90px;">
+      <option *ngFor="let numberOp of cardOptions" value='{{numberOp.value}}'>{{numberOp.q}}</option>
+    </select>
+      </div>
+    </div>
+  </div>
+  <div style="width: 100px; display: inline-block;">
+    <div class="card addPadding" style="width: 100px; display: block">
+      <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
+      <div class="card-block">
+        <select #shape3>
+      <option *ngFor='let shapeOp of shapes' value='{{shapeOp.value}}' [attr.selectedShape]='shapeOp.selectedShape'>{{shapeOp.q}}</option>
+    </select>
+        <select #number3 style="width: 90px;">
+      <option *ngFor="let numberOp of cardOptions" value='{{numberOp.value}}'>{{numberOp.q}}</option>
+    </select>
+      </div>
+    </div>
+  </div>
+  <div style="width: 100px; display: inline-block;">
+    <div class="card addPadding" style="width: 100px; display: block">
+      <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
+      <div class="card-block">
+        <select #shape4>
+      <option *ngFor='let shapeOp of shapes' value='{{shapeOp.value}}' [attr.selectedShape]='shapeOp.selectedShape'>{{shapeOp.q}}</option>
+    </select>
+        <select #number4 style="width: 90px;">
+      <option *ngFor="let numberOp of cardOptions" value='{{numberOp.value}}'>{{numberOp.q}}</option>
+    </select>
+      </div>
+    </div>
+  </div>
+  <div style="width: 100px; display: inline-block;">
+    <div class="card addPadding" style="width: 100px; display: block">
+      <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
+      <div class="card-block">
+        <select #shape5>
+      <option *ngFor='let shapeOp of shapes' value='{{shapeOp.value}}' [attr.selectedShape]='shapeOp.selectedShape'>{{shapeOp.q}}</option>
+    </select>
+        <select #number5 style="width: 90px;">
+      <option *ngFor="let numberOp of cardOptions" value='{{numberOp.value}}'>{{numberOp.q}}</option>
+    </select>
+      </div>
+    </div>
+  </div>
+  <div class="centered text-center">
+    <button (click)='guess(shape1.selectedOptions[0].getAttribute("selectedshape"), number1.selectedOptions[0].value, shape2.selectedOptions[0].getAttribute("selectedshape"), number2.selectedOptions[0].value, shape3.selectedOptions[0].getAttribute("selectedshape"), number3.selectedOptions[0].value, shape4.selectedOptions[0].getAttribute("selectedshape"), number4.selectedOptions[0].value, shape5.selectedOptions[0].getAttribute("selectedshape"), number5.selectedOptions[0].value)'>Guess</button>
   </div>
 </div>
