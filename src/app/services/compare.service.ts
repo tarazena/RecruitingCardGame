@@ -88,11 +88,13 @@ export class CompareService {
         switch (q2.selectedOptions[0].value) {
             case '1':
                 // shapes
-                result = this.cards.map(card => Shapes[card.shape]).filter(shape => shape === parseInt(q2.selectedOptions[0].getAttribute('selectedShape'))).length;
+                result = this.cards.map(card =>
+                        card.shape).filter(shape => 
+                            shape === parseInt(q2.selectedOptions[0].getAttribute('selectedShape'))).length;
                 break;
             case '4': case '5':
                 // color
-                result = this.cards.map(card => card.color).filter(color => color === (q2.selectedOptions[0].innerText.split(" ")[0])).length;
+                result = this.cards.map(card => card.color).filter(color => Color[color] === (q2.selectedOptions[0].innerText.split(" ")[0])).length;
                 break;
             case '6':
                 // Face Cards

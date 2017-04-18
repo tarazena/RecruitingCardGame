@@ -1,6 +1,6 @@
-<div class="centered text-center">
-  <div style="width: 100px; display: inline-block;">
-    <div class="card addPadding" style="width: 100px; display: block">
+<div class="centered text-center row">
+  <div class="col-md-2 addPadding">
+    <div class="card" style="width: 100px; display: block">
       <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
       <div class="card-block">
         <select #shape1>
@@ -12,8 +12,8 @@
       </div>
     </div>
   </div>
-  <div style="width: 100px; display: inline-block;">
-    <div class="card addPadding" style="width: 100px; display: block">
+  <div class="col-md-2 addPadding">
+    <div class="card" style="width: 100px; display: block">
       <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
       <div class="card-block">
         <select #shape2>
@@ -25,8 +25,8 @@
       </div>
     </div>
   </div>
-  <div style="width: 100px; display: inline-block;">
-    <div class="card addPadding" style="width: 100px; display: block">
+  <div class="col-md-2 addPadding">
+    <div class="card" style="width: 100px; display: block">
       <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
       <div class="card-block">
         <select #shape3>
@@ -38,8 +38,8 @@
       </div>
     </div>
   </div>
-  <div style="width: 100px; display: inline-block;">
-    <div class="card addPadding" style="width: 100px; display: block">
+  <div class="col-md-2 addPadding">
+    <div class="card" style="width: 100px; display: block">
       <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
       <div class="card-block">
         <select #shape4>
@@ -51,8 +51,8 @@
       </div>
     </div>
   </div>
-  <div style="width: 100px; display: inline-block;">
-    <div class="card addPadding" style="width: 100px; display: block">
+  <div class="col-md-2 addPadding">
+    <div class="card" style="width: 100px; display: block">
       <img class="card-img-top" src="../../assets/image002.jpg" alt="Card image cap" style="width: 100px;">
       <div class="card-block">
         <select #shape5>
@@ -64,7 +64,10 @@
       </div>
     </div>
   </div>
-  <div class="centered text-center">
-    <button (click)='guess(shape1.selectedOptions[0].getAttribute("selectedshape"), number1.selectedOptions[0].value, shape2.selectedOptions[0].getAttribute("selectedshape"), number2.selectedOptions[0].value, shape3.selectedOptions[0].getAttribute("selectedshape"), number3.selectedOptions[0].value, shape4.selectedOptions[0].getAttribute("selectedshape"), number4.selectedOptions[0].value, shape5.selectedOptions[0].getAttribute("selectedshape"), number5.selectedOptions[0].value)'>Guess</button>
-  </div>
+  
 </div>
+<div class="centered text-center row">
+  <div class="col-md-10">
+    <button class="button" (click)='guess(shape1.selectedOptions[0].getAttribute("selectedshape"), number1.selectedOptions[0].value, shape2.selectedOptions[0].getAttribute("selectedshape"), number2.selectedOptions[0].value, shape3.selectedOptions[0].getAttribute("selectedshape"), number3.selectedOptions[0].value, shape4.selectedOptions[0].getAttribute("selectedshape"), number4.selectedOptions[0].value, shape5.selectedOptions[0].getAttribute("selectedshape"), number5.selectedOptions[0].value)'>Guess</button>
+  </div>
+  </div>

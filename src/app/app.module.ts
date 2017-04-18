@@ -11,7 +11,8 @@ import { QuestionsComponent } from './questions/questions.component';
 import { CardsService } from './services/cards.service';
 import { PipeModule } from './pipes/pipeModule';
 import { CompareService } from './services/compare.service';
-import { LogService } from "./services/log.service";
+import { LogService } from './services/log.service';
+import { GuessService } from "./services/guess.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { LogService } from "./services/log.service";
     AlertModule.forRoot(), 
     PipeModule.forRoot()
   ],
-  providers: [ CardsService, CompareService, LogService ],
+  providers: [ CardsService, CompareService, LogService, GuessService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
