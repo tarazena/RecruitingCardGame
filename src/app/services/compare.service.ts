@@ -43,7 +43,7 @@ export class CompareService {
         switch (q2.selectedOptions[0].value) {
             case '1':
                 // shapes
-                filteredValu = this.cards.filter(card => _.isEqual(card.shape, q2.selectedOptions[0].getAttribute('selectedshape').value)).map(x => x.number);
+                filteredValu = this.cards.filter(card => _.isEqual(card.shape, parseInt(q2.selectedOptions[0].getAttribute('selectedshape')))).map(x => x.number);
                 this.operation(filteredValu, q4, q5);
                 break;
             case '2':
