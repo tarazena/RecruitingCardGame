@@ -6,7 +6,7 @@ export const howManyOrWhatQuestions = [
 
 export const cardsOrSumQuestions = [
     { 'value': 0, 'q': '' },
-    { 'value': 1, 'q': 'Clubs' ,'selectedShape' : 1},
+    { 'value': 1, 'q': 'Clubs' , 'selectedShape' : 1},
     { 'value': 1, 'q': 'Diamonds', 'selectedShape' : 2},
     { 'value': 1, 'q': 'Hearts', 'selectedShape' : 3 },
     { 'value': 1, 'q': 'Spades', 'selectedShape' : 4 },

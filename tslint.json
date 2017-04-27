@@ -18,6 +18,7 @@
       true,
       "spaces"
     ],
+    "disable-next-line:radix": false,
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [

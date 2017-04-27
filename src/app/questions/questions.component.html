@@ -4,19 +4,19 @@
           padding-bottom: 10px;
           padding-top: 10px;
           background-color: lightblue;">
-      <select #firstQuestion class="selectpicker" data-style="btn-primary">
+      <select #firstQuestion class="selectpicker" data-style="btn-primary" (change)='treve();enableThirdQuestion(thirdQuestion);disableForthAndFifthQ();'>
       <option *ngFor='let option of howManyDropDown' value="{{option.value}}">{{option.q}}</option>
       </select>
-      <select #secondQuestion>
-      <option *ngFor='let cardOrSum of cardsOrSumDropDown' value='{{cardOrSum.value}}' [attr.selectedShape]='cardOrSum.selectedShape'>{{cardOrSum.q}}</option>
+      <select #secondQuestion (change)='treve();enableThirdQuestion(thirdQuestion);'>
+      <option *ngFor='let cardOrSum of (cardsOrSumDropDown | secondQuestionFilter:firstQuestion)' value='{{cardOrSum.value}}' [attr.selectedShape]='cardOrSum.selectedShape' >{{cardOrSum.q}}</option>
   </select>
-      <select #thirdQuestion>
-    <option  *ngFor='let areOrQues of areOrQuestion' value={{areOrQues.value}} hello="hello">{{areOrQues.q}}</option>
+      <select #thirdQuestion (change)='treve();enableThirdQuestion(thirdQuestion)'>
+    <option  *ngFor='let areOrQues of (areOrQuestion | thirdQuestionFilter:secondQuestion :firstQuestion)' value={{areOrQues.value}}>{{areOrQues.q}}</option>
   </select>
-      <select #forthQuestion>
+      <select #forthQuestion [ngStyle]="{'display': showFouthAndFifthQuestion}">
     <option  *ngFor='let operat of operation' value='{{operat.value}}' >{{operat.q}}</option>
   </select>
-      <select #fifthQuestion>
+      <select #fifthQuestion [ngStyle]="{'display': showFouthAndFifthQuestion}">
     <option *ngFor='let cd of card' value='{{cd.value}}'>{{cd.q}}</option>
   </select>
       <button (click)='askQuestion(firstQuestion, secondQuestion, thirdQuestion, forthQuestion, fifthQuestion)'>Ask</button>
