@@ -38,7 +38,7 @@ export class CompareService {
     }
 
     private howManyFiveQuestions(q2, q4, q5) {
-        console.log('Compare Service, running how many 5 Q\'s');
+        // console.log('Compare Service, running how many 5 Q\'s');
         let filteredValu;
         switch (q2.selectedOptions[0].value) {
             case '1':
@@ -57,7 +57,7 @@ export class CompareService {
     }
 
     private operation(filteredValue: number[], q4, q5) {
-        console.log('Compare Service, running operation');
+        // console.log('Compare Service, running operation');
         let result;
         switch (q4.selectedOptions[0].innerText) {
             case '>=':
